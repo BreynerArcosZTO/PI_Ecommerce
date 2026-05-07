@@ -17,7 +17,7 @@
                 <div class="logo-circle">K</div>
             </div>
             <nav class="nav-links">
-                <a href="#">Inicio</a>
+                <a href="{{ url('/') }}">Inicio</a>
                 <a href="#categorias">Colecciones</a>
                 <a href="#">Ofertas</a>
                 <a href="#">Contacto</a>
@@ -101,7 +101,9 @@
                 <!-- Product 1 -->
                 <div class="product-card">
                     <div class="wishlist-icon"><ion-icon name="heart-outline"></ion-icon></div>
+                    <a href="/producto/detalle">
                     <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Serum">
+                    </a>
                 </div>
                 <!-- Product 2 -->
                 <div class="product-card">
