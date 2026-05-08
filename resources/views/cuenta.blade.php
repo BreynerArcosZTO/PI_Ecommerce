@@ -32,7 +32,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            background: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(99deg, #ffffff 0%, #dcdbd8 45%, #b5b3af 100%);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
