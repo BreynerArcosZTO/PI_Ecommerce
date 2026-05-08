@@ -31,7 +31,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            background: #fff;
+            background: linear-gradient(99deg, #ffffff 0%, #dcdbd8 45%, #b5b3af 100%);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
@@ -94,6 +94,11 @@
         .contact-section {
             padding: 80px 8%;
             background-color: #fffaf5;
+            background-image: url('https://res.cloudinary.com/deyudesls/image/upload/f_auto,q_auto:low,c_limit,w_1920,dpr_auto,fl_progressive,fl_immutable_cache/v1754793669/heroPink.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
             /* Crema suave del hero */
         }
 
@@ -103,7 +108,7 @@
         }
 
         .contact-mini-title {
-            color: #ff9fb2;
+            color: #000;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 600;
