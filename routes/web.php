@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductoController;
 Route::get('/', function () {
     return view('welcome');
 });
+<<<<<<< HEAD
 
 // Esta ruta lleva directamente a detalle producto
 Route::get('/producto/detalle', function () {
@@ -13,3 +14,11 @@ Route::get('/producto/detalle', function () {
 });
 
 
+=======
+Route::get('/contacto', function () {
+    return view('contacto');
+})->name('contacto');
+Route::get('/cuenta', function () {
+    return view('cuenta');
+})->name('cuenta');
+>>>>>>> origin/jhon

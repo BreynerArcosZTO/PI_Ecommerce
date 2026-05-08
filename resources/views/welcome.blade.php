@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
+
 <body id="inicio">
     <div class="main-container">
         <!-- Header -->
@@ -20,13 +22,14 @@
                 <a href="{{ url('/') }}">Inicio</a>
                 <a href="#categorias">Colecciones</a>
                 <a href="#">Ofertas</a>
-                <a href="#">Contacto</a>
-                <a href="#">Mi Cuenta</a>
+                <a href="{{ route('contacto') }}">Contacto</a>
+                <a href="/cuenta">Cuenta</a>
             </nav>
+
             <div class="cart-icon">
                 <ion-icon name="bag-outline"></ion-icon>
                 <span class="cart-badge">0</span>
-            </div>  
+            </div>
         </header>
 
         <!-- Hero Section -->
@@ -49,7 +52,7 @@
                 <div class="header-line"></div>
                 <a href="#destacados" class="btn-outline">Ver todo</a>
             </div>
-            
+
             <div class="categories-grid">
                 <!-- Category 1 -->
                 <div class="category-item">
@@ -125,4 +128,5 @@
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>
