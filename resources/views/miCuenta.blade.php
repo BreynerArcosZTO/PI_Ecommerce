@@ -23,7 +23,7 @@
                 <a href="{{ url('/') }}">Inicio</a>
                 <a href="#categorias">Colecciones</a>
                 <a href="#">Ofertas</a>
-                <a href="#">Contacto</a>
+                <a href="{{ route('contacto') }}">Contacto</a>
                 <a href="{{ url('/miCuenta') }}">Mi Cuenta</a>
             </nav>
             <div class="cart-icon">

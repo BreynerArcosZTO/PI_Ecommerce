@@ -41,7 +41,13 @@
                 <a href="#categorias" class="btn-primary">Ver colecciones</a>
             </div>
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Yuja Niacin" class="bottle-img">
+                <div class="hero-decoration">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                </div>
             </div>
         </section>
 
