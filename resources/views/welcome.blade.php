@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
+
 <body id="inicio">
     <div class="main-container">
         <!-- Header -->
@@ -20,13 +22,14 @@
                 <a href="{{ url('/') }}">Inicio</a>
                 <a href="#categorias">Colecciones</a>
                 <a href="#">Ofertas</a>
-                <a href="#">Contacto</a>
-                <a href="#">Mi Cuenta</a>
+                <a href="{{ route('contacto') }}">Contacto</a>
+                <a href="/cuenta">Cuenta</a>
             </nav>
+
             <div class="cart-icon">
                 <ion-icon name="bag-outline"></ion-icon>
                 <span class="cart-badge">0</span>
-            </div>  
+            </div>
         </header>
 
         <!-- Hero Section -->
@@ -49,7 +52,7 @@
                 <div class="header-line"></div>
                 <a href="#destacados" class="btn-outline">Ver todo</a>
             </div>
-            
+
             <div class="categories-grid">
                 <!-- Category 1 -->
                 <div class="category-item">
@@ -101,8 +104,8 @@
                 <!-- Product 1 -->
                 <div class="product-card">
                     <div class="wishlist-icon"><ion-icon name="heart-outline"></ion-icon></div>
-                    <a href="/producto/detalle">
-                    <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Serum">
+                    <a href="{{ route('shop.detalle_producto', 1) }}">
+                    <img src="https://medipielsa.vtexassets.com/arquivos/ids/1338171-1200-auto?v=639072031104430000&width=1200&height=auto&aspect=true" alt="Protector Solar Tocobo">
                     </a>
                 </div>
                 <!-- Product 2 -->
@@ -125,4 +128,5 @@
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>

@@ -2,7 +2,7 @@ import './bootstrap';
 document.addEventListener('DOMContentLoaded', () => {
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -35,19 +35,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Scroll Animation Observer for product cards
     const fadeElements = document.querySelectorAll('.product-card, .collection-banner');
-    
+
     const intersectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '0';
                 entry.target.style.transform = 'translateY(20px)';
                 entry.target.style.transition = 'all 0.6s ease-out';
-                
+
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }, 100);
-                
+
                 intersectionObserver.unobserve(entry.target);
             }
         });
