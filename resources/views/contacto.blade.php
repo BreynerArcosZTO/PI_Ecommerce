@@ -241,8 +241,18 @@
             <a href="{{ url('/') }}">Inicio</a>
             <a href="#categorias">Colecciones</a>
             <a href="#">Ofertas</a>
+<<<<<<< Updated upstream
             <a href="#contacto">Contacto</a>
             <a href="/cuenta">Cuenta</a>
+=======
+            <a href="{{ route('contacto') }}">Contacto</a>
+            @guest
+                <a href="{{ route('login') }}">Iniciar sesion</a>
+                <a href="{{ route('register') }}">Registrarse</a>
+            @else
+                <a href="{{ route('dashboard') }}">Mi cuenta</a>
+            @endguest
+>>>>>>> Stashed changes
         </nav>
 
         <div class="cart-icon">
