@@ -31,7 +31,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            background: linear-gradient(99deg, #ffffff 0%, #dcdbd8 45%, #b5b3af 100%);
+            background: linear-gradient(99deg, #ffffff 0%, #faf8f5 45%, #f5f1ed 100%);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
@@ -54,40 +54,43 @@
 
         .nav-links {
             display: flex;
+            gap: 35px;
             margin-left: auto;
-            /* EMPUJA EL MENÚ A LA DERECHA */
-            margin-right: 50px;
-            /* ESPACIO RESPECTO AL CARRITO */
+            margin-right: 40px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: #1f1f1f;
-            margin: 0 15px;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: #ff9fb2;
-            /* Rosa de la marca */
+            color: #ff91a4;
         }
 
         .cart-icon {
-            font-size: 1.5rem;
             position: relative;
+            font-size: 1.6rem;
             cursor: pointer;
+            font-weight: bold;
         }
 
         .cart-badge {
             position: absolute;
-            top: -5px;
-            right: -10px;
-            background: #333;
-            color: white;
-            font-size: 0.7rem;
-            padding: 2px 6px;
+            top: -4px;
+            right: -6px;
+            background-color: #1f1f1f;
+            color: #fff;
+            font-size: 0.65rem;
             border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* ==================== SECCIÓN CONTACTO ==================== */
@@ -241,7 +244,7 @@
             <a href="{{ url('/') }}">Inicio</a>
             <a href="#categorias">Colecciones</a>
             <a href="#">Ofertas</a>
-            <a href="#contacto">Contacto</a>
+            <a href="{{ route('contacto') }}">Contacto</a>
             <a href="/cuenta">Cuenta</a>
         </nav>
 

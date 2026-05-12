@@ -32,7 +32,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            background: linear-gradient(99deg, #ffffff 0%, #dcdbd8 45%, #b5b3af 100%);
+            background: linear-gradient(99deg, #ffffff 0%, #faf8f5 45%, #f5f1ed 100%);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
@@ -51,52 +51,48 @@
             align-items: center;
             font-weight: 700;
             font-size: 1.4rem;
+            font-size: 1.4rem;
         }
 
         .nav-links {
             display: flex;
+            gap: 35px;
             margin-left: auto;
-            margin-right: 50px;
+            margin-right: 40px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: #1f1f1f;
-            margin: 0 15px;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: #ff9fb2;
+            color: #ff91a4;
         }
 
         .cart-icon {
-            font-size: 1.5rem;
             position: relative;
+            font-size: 1.6rem;
             cursor: pointer;
-        }
-
-        .cart-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            color: #1f1f1f;
-            font-size: 28px;
-            margin-left: 15px;
+            font-weight: bold;
         }
 
         .cart-badge {
             position: absolute;
-            top: -5px;
-            right: -10px;
-            background: #333;
-            color: white;
-            font-size: 0.7rem;
-            padding: 2px 6px;
+            top: -4px;
+            right: -6px;
+            background-color: #1f1f1f;
+            color: #fff;
+            font-size: 0.65rem;
             border-radius: 50%;
-            font-weight: 700;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* ==================== CONTENEDOR CENTRAL ==================== */
@@ -222,12 +218,12 @@
             <a href="#">Ofertas</a>
             <a href="/contacto">Contacto</a>
             <a href="/mi-cuenta">Mi Cuenta</a>
-
-            <div class="cart-container">
-                <ion-icon name="bag-handle-outline"></ion-icon>
-                <span class="cart-badge">0</span>
-            </div>
         </nav>
+
+        <div class="cart-icon">
+            <ion-icon name="bag-outline"></ion-icon>
+            <span class="cart-badge">0</span>
+        </div>
     </header>
 
     <main class="main-content">
