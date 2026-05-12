@@ -32,7 +32,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            background: linear-gradient(99deg, #ffffff 0%, #faf8f5 45%, #f5f1ed 100%);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
@@ -51,48 +51,52 @@
             align-items: center;
             font-weight: 700;
             font-size: 1.4rem;
-            font-size: 1.4rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 35px;
             margin-left: auto;
-            margin-right: 40px;
+            margin-right: 50px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: #1f1f1f;
-            font-size: 0.9rem;
+            margin: 0 15px;
             font-weight: 500;
             transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: #ff91a4;
+            color: #ff9fb2;
         }
 
         .cart-icon {
+            font-size: 1.5rem;
             position: relative;
-            font-size: 1.6rem;
             cursor: pointer;
-            font-weight: bold;
+        }
+
+        .cart-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #1f1f1f;
+            font-size: 28px;
+            margin-left: 15px;
         }
 
         .cart-badge {
             position: absolute;
-            top: -4px;
-            right: -6px;
-            background-color: #1f1f1f;
-            color: #fff;
-            font-size: 0.65rem;
+            top: -5px;
+            right: -10px;
+            background: #333;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
             border-radius: 50%;
-            width: 16px;
-            height: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-weight: 700;
         }
 
         /* ==================== CONTENEDOR CENTRAL ==================== */
@@ -217,13 +221,13 @@
             <a href="#categorias">Colecciones</a>
             <a href="#">Ofertas</a>
             <a href="/contacto">Contacto</a>
-            <a href="/mi-cuenta">Mi Cuenta</a>
-        </nav>
+            <a href="/cuenta">Cuenta</a>
 
-        <div class="cart-icon">
-            <ion-icon name="bag-outline"></ion-icon>
-            <span class="cart-badge">0</span>
-        </div>
+            <div class="cart-container">
+                <ion-icon name="bag-handle-outline"></ion-icon>
+                <span class="cart-badge">0</span>
+            </div>
+        </nav>
     </header>
 
     <main class="main-content">

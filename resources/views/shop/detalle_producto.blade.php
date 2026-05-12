@@ -400,7 +400,7 @@
         margin-bottom: 20px;
     }
 
-    <-- ! Cambio de color boton agregar al carrito -->
+    /* Cambio de color boton agregar al carrito */
     .btn-cart:hover {
         background: #ffccbc;
         transform: translateY(-2px);
@@ -482,8 +482,13 @@
                 <a href="{{ url('/') }}">Inicio</a>
                 <a href="#categorias">Colecciones</a>
                 <a href="#">Ofertas</a>
-                <a href="#">Contacto</a>
-                <a href="#">Mi Cuenta</a>
+                <a href="{{ route('contacto') }}">Contacto</a>
+                @guest
+                    <a href="{{ route('login') }}">Iniciar sesion</a>
+                    <a href="{{ route('register') }}">Registrarse</a>
+                @else
+                    <a href="{{ route('mi-cuenta') }}">Mi cuenta</a>
+                @endguest
             </nav>
             <div class="cart-icon">
                 <ion-icon name="bag-outline"></ion-icon>

@@ -23,7 +23,12 @@
                 <a href="#categorias">Colecciones</a>
                 <a href="#">Ofertas</a>
                 <a href="{{ route('contacto') }}">Contacto</a>
-                <a href="/cuenta">Cuenta</a>
+                @guest
+                <a href="{{ route('login') }}">Iniciar sesion</a>
+                <a href="{{ route('register') }}">Registrarse</a>
+                @else
+                <a href="{{ route('mi-cuenta') }}">Mi cuenta</a>
+                @endguest
             </nav>
 
             <div class="cart-icon">
@@ -111,7 +116,7 @@
                 <div class="product-card">
                     <div class="wishlist-icon"><ion-icon name="heart-outline"></ion-icon></div>
                     <a href="{{ route('shop.detalle_producto', 1) }}">
-                    <img src="https://medipielsa.vtexassets.com/arquivos/ids/1338171-1200-auto?v=639072031104430000&width=1200&height=auto&aspect=true" alt="Protector Solar Tocobo">
+                        <img src="https://medipielsa.vtexassets.com/arquivos/ids/1338171-1200-auto?v=639072031104430000&width=1200&height=auto&aspect=true" alt="Protector Solar Tocobo">
                     </a>
                 </div>
                 <!-- Product 2 -->
