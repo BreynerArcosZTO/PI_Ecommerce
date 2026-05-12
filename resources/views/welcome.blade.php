@@ -104,8 +104,8 @@
                 <!-- Product 1 -->
                 <div class="product-card">
                     <div class="wishlist-icon"><ion-icon name="heart-outline"></ion-icon></div>
-                    <a href="/producto/detalle">
-                    <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Serum">
+                    <a href="{{ route('shop.detalle_producto', 1) }}">
+                    <img src="https://medipielsa.vtexassets.com/arquivos/ids/1338171-1200-auto?v=639072031104430000&width=1200&height=auto&aspect=true" alt="Protector Solar Tocobo">
                     </a>
                 </div>
                 <!-- Product 2 -->

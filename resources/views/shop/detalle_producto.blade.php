@@ -400,7 +400,8 @@
         margin-bottom: 20px;
     }
 
-    <-- ! Cambio de color boton agregar al carrito -->.btn-cart:hover {
+    <-- ! Cambio de color boton agregar al carrito -->
+    .btn-cart:hover {
         background: #ffccbc;
         transform: translateY(-2px);
     }
@@ -495,16 +496,33 @@
 
             <!-- Galería -->
             <div class="gallery">
-                <div class="thumbnails">
-                    <div class="thumb active"><span class="thumb-placeholder">📦</span></div>
+                    <div class="thumbnails">
+                        @forelse($images as $image)
+                    <div class="thumb {{ $loop->first ? 'active' : '' }}">
+                        <img 
+                            src="{{ $image->image_path }}" 
+                            alt="{{ $image->alt_text ?? $product->name }}"
+                        >
+                    </div>
+                        @empty
+                            <div class="thumb active">
+                                <span class="thumb-placeholder">📦</span>
+                            </div>
+                        @endforelse
                     <div class="thumb"><span class="thumb-placeholder">🖼️</span></div>
                     <div class="thumb"><span class="thumb-placeholder">🖼️</span></div>
                     <div class="thumb"><span class="thumb-placeholder">🖼️</span></div>
                     <div class="thumb"><span class="thumb-placeholder">🖼️</span></div>
                 </div>
                 <div class="main-image">
-                    <!-- <img src="{{ asset('images/producto.jpg') }}" alt="Kit de moldeo"> -->
-                    <span class="main-image-placeholder">🖼️</span>
+                    @if($images->count() > 0)
+                        <img 
+                            src="{{ $images->first()->image_path }}" 
+                            alt="{{ $images->first()->alt_text ?? $product->name }}"
+                        >
+                    @else
+                        <span class="main-image-placeholder">🖼️</span>
+                    @endif
                 </div>
             </div>
 
@@ -516,26 +534,25 @@
                     <span class="review-count">562 Reseñas</span>
                 </div>
 
-                <h1>Introducir Texto</h1>
-                <p class="sku">SKU: 0000000</p>
+                <h1>{{ $product->name }}</h1>
+                <p class="sku">
+                    SKU: {{ $product->sku }}
+                    Marca: {{ $product->brand_name ?? 'Sin marca' }}
+                </p>
 
                 <div class="price-row">
-                    <span class="price">$000.000</span>
+                    <span class="price">
+                        ${{ number_format($product->price, 0, ',', '.') }}
+                    </span>
                     <span class="badge-sale">30% DE DESCUENTO</span>
                     <!-- <span class="free-returns">FREE Returns ▾</span> -->
                 </div>
 
                 <p class="product-description">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged. It was popularised in the 1960s with the release of
-                    Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                    software like Aldus PageMaker including versions of Lorem Ipsum
+                    {{ $product->description }}
                 </p>
 
-                <div>
+                {{-- <div>
                   <p class="includes-label">Qué incluye</p>
                   <div class="includes-grid">
                       <div class="include-item"><span class="include-dot dot-blue"></span> Texto </div>
@@ -543,7 +560,7 @@
                       <div class="include-item"><span class="include-dot dot-green"></span> Texto </div>
                       <div class="include-item"><span class="include-dot dot-blue"></span> Texto </div>
                   </div>
-                </div>
+                </div> --}}
 
                 <!-- Pago online -->
                 <div class="payment-box">
@@ -566,7 +583,9 @@
                             <div class="online-badge">PAGANDO EN LÍNEA <strong>AHORRA</strong></div>
                             <p class="save-note">Tu ahorras con esta activa.</p>
                         </div>
-                        <span class="online-price">$00.000</span>
+                        <span class="online-price">
+                            ${{ number_format($product->price * 0.9, 0, ',', '.') }}
+                        </span>
                     </div>
                 </div>
 
