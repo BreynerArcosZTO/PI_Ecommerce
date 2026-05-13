@@ -90,14 +90,18 @@
 
     .gallery {
         display: flex;
-        width: 100%;
+        flex: 0 0 52%;
+        max-width: 620px;
         gap: 12px;
+        align-items: flex-start;
+        padding-top: 20px;
     }
 
     .thumbnails {
         display: flex;
         flex-direction: column;
         gap: 10px;
+        flex-shrink: 0;
     }
 
     .thumb {
@@ -131,19 +135,20 @@
     .main-image {
         display: flex;
         flex: 1;
-        height: 50%;
-        min-height: 310px;
+        aspect-ratio: 1 / 1;
+        min-height: 420px;
         background-color: #f5f5f5;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         border-radius: 12px;
+        padding: 18px;
     }
 
     .main-image img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 12px;
     }
 
@@ -153,7 +158,9 @@
     }
 
     .product-info {
-        padding: 0 0 0 30px;
+        flex: 1;
+        min-width: 0;
+        padding: 0;
     }
 
     .stars {
@@ -403,28 +410,35 @@
         margin-bottom: 20px;
     }
 
-    <-- ! Cambio de color boton agregar al carrito -->
+    /* Cambio de color boton agregar al carrito */
     .btn-cart:hover {
         background: #ffccbc;
         transform: translateY(-2px);
     }
 
     .trust-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        align-items: stretch;
         gap: 12px;
     }
 
     .trust-item {
         display: flex;
-        align-items: flex-start;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
         gap: 8px;
+        min-width: 0;
+        padding: 14px 10px;
+        text-align: center;
+        background: #fafafa;
+        border-radius: 10px;
     }
 
     .trust-icon {
         font-size: 1.4rem;
         flex-shrink: 0;
-        margin-top: 2px;
     }
 
     .trust-text strong {
@@ -434,6 +448,7 @@
     }
 
     .trust-text span {
+        display: block;
         font-size: 0.68rem;
         color: #888;
         line-height: 1.4;
@@ -460,10 +475,14 @@
         }
 
         .product-info {
-            padding: 24px 0 0;
+            width: 100%;
+            padding: 0;
         }
 
         .gallery {
+            flex: none;
+            max-width: none;
+            width: 100%;
             flex-direction: column-reverse;
         }
 
@@ -472,17 +491,30 @@
         }
 
         .main-image {
-            min-height: 220px;
+            min-height: 320px;
+        }
+
+        .trust-grid {
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            flex-basis: calc(50% - 6px);
         }
     }
 
     @media (max-width: 500px) {
         .includes-grid {
-            grid-template-columns: 1fr 1fr;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .trust-grid {
-            grid-template-columns: 1fr;
+            flex-direction: column;
+        }
+
+        .trust-item {
+            flex-basis: auto;
         }
     }
 </style>
@@ -518,30 +550,25 @@
 
             <!-- Galería -->
             <div class="gallery">
-                    <div class="thumbnails">
-                        @forelse($images as $image)
-                    <div class="thumb {{ $loop->first ? 'active' : '' }}">
-                        <img 
-                            src="{{ $image->image_path }}" 
-                            alt="{{ $image->alt_text ?? $product->name }}"
-                        >
-                    </div>
-                        @empty
-                            <div class="thumb active">
-                                <span class="thumb-placeholder">📦</span>
-                            </div>
-                        @endforelse
+                <div class="thumbnails">
+                    @forelse($images as $image)
+                        <div class="thumb {{ $loop->first ? 'active' : '' }}">
+                            <img src="{{ $image->image_path }}" alt="{{ $image->alt_text ?? $product->name }}">
+                        </div>
+                    @empty
+                        <div class="thumb active">
+                            <span class="thumb-placeholder">📦</span>
+                        </div>
+                    @endforelse
                     <div class="thumb"><span class="thumb-placeholder">🖼️</span></div>
                     <div class="thumb"><span class="thumb-placeholder">🖼️</span></div>
                     <div class="thumb"><span class="thumb-placeholder">🖼️</span></div>
                     <div class="thumb"><span class="thumb-placeholder">🖼️</span></div>
                 </div>
                 <div class="main-image">
-                    @if($images->count() > 0)
-                        <img 
-                            src="{{ $images->first()->image_path }}" 
-                            alt="{{ $images->first()->alt_text ?? $product->name }}"
-                        >
+                    @if ($images->count() > 0)
+                        <img src="{{ $images->first()->image_path }}"
+                            alt="{{ $images->first()->alt_text ?? $product->name }}">
                     @else
                         <span class="main-image-placeholder">🖼️</span>
                     @endif
