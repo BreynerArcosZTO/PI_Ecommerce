@@ -31,7 +31,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 20px 40px;
-  background: linear-gradient(99deg, #ffffff 0%, #dcdbd8 45%, #b5b3af 100%);
+  background: linear-gradient(99deg, #fff5f8 0%, #ffe4ed 50%, #ffd6e8 100%);
   scroll-margin-top: 24px;
 }
 
@@ -90,7 +90,7 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(99deg, #ffffff 0%, #dcdbd8 45%, #b5b3af 100%);
+  background: linear-gradient(99deg, #fff5f8 0%, #ffe4ed 50%, #ffc9da 100%);
   display: flex;
   padding: 60px 50px;
   align-items: center;
@@ -149,7 +149,7 @@ body {
 .hero-image {
   width: 40%;
   position: relative;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -206,7 +206,7 @@ body {
 /* Categories Section */
 .categories-section {
   padding: 50px 40px;
-  background: linear-gradient(77deg, #ffffff 0%, #dcdbd8 45%, #b5b3af 100%);
+  background: linear-gradient(77deg, #fffbfd 0%, #fff0f5 45%, #ffe4ed 100%);
   scroll-margin-top: 24px;
 }
 
@@ -282,7 +282,7 @@ body {
 
 /* Featured Section */
 .featured-section {
-  background: linear-gradient(103deg, #ffffff 0%, #dcdbd8 45%, #b5b3af 100%);
+  background: linear-gradient(103deg, #fff8fa 0%, #fff0f5 45%, #ffe4ed 100%);
   padding: 50px 40px;
   scroll-margin-top: 24px;
 }

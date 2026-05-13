@@ -31,8 +31,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            background: linear-gradient(99deg, #ffffff 0%, #dcdbd8 45%, #b5b3af 100%);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 50%, #f48fb1 100%);
+            box-shadow: 0 2px 10px rgba(244, 143, 177, 0.15);
             position: sticky;
             top: 0;
             z-index: 1000;

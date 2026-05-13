@@ -1,31 +1,26 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-    </div>
-
-    @if (session('status') == 'verification-link-sent')
-        <div class="mb-4 font-medium text-sm text-green-600">
-            {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+    <div class="login-box">
+        <h1>Verifica tu Correo</h1>
+        <p>¡Gracias por registrarte! Verifica tu correo electrónico para continuar</p>
+        
+        <div class="form-group" style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+            <p style="color: #666; font-size: 14px; margin: 0;">Hemos enviado un enlace de verificación a tu correo. Por favor verifica tu bandeja de entrada.</p>
         </div>
-    @endif
 
-    <div class="mt-4 flex items-center justify-between">
-        <form method="POST" action="{{ route('verification.send') }}">
-            @csrf
-
-            <div>
-                <x-primary-button>
-                    {{ __('Resend Verification Email') }}
-                </x-primary-button>
+        @if (session('status') == 'verification-link-sent')
+            <div class="alert" style="background-color: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7;">
+                Se ha enviado un nuevo enlace de verificación a tu correo electrónico.
             </div>
+        @endif
+
+        <form method="POST" action="{{ route('verification.send') }}" style="margin-bottom: 15px;">
+            @csrf
+            <button type="submit" class="btn-login">Reenviar Correo de Verificación</button>
         </form>
 
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-
-            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                {{ __('Log Out') }}
-            </button>
+            <button type="submit" class="btn-login" style="background: linear-gradient(135deg, #ccc 0%, #bbb 100%); margin-top: 10px;">Cerrar Sesión</button>
         </form>
     </div>
 </x-guest-layout>

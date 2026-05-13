@@ -1,25 +1,30 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+    <div class="login-box">
+        <h1>Recuperar Contraseña</h1>
+        <p>Ingresa tu correo para recibir un enlace de recuperación</p>
+        
+        @if (session('status'))
+            <div class="alert" style="background-color: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7;">
+                {{ session('status') }}
+            </div>
+        @endif
+
+        <form method="POST" action="{{ route('password.email') }}">
+            @csrf
+
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus />
+                @error('email')
+                    <div class="error-message">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <button type="submit" class="btn-login">Enviar Enlace de Recuperación</button>
+
+            <div class="signup-link">
+                <a href="{{ route('login') }}">Volver a Iniciar Sesión</a>
+            </div>
+        </form>
     </div>
-
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
 </x-guest-layout>
