@@ -245,7 +245,12 @@
             <a href="#categorias">Colecciones</a>
             <a href="#">Ofertas</a>
             <a href="{{ route('contacto') }}">Contacto</a>
-            <a href="/cuenta">Cuenta</a>
+            @guest
+                <a href="{{ route('login') }}">Iniciar sesion</a>
+                <a href="{{ route('register') }}">Registrarse</a>
+            @else
+                <a href="{{ route('dashboard') }}">Mi cuenta</a>
+            @endguest
         </nav>
 
         <div class="cart-icon">
