@@ -21,7 +21,7 @@ Route::get('/cuenta', function () {
 })->name('cuenta');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('miCuenta');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

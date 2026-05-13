@@ -21,16 +21,8 @@
             </div>
             <nav class="nav-links">
                 <a href="{{ url('/') }}">Inicio</a>
-                <a href="#categorias">Colecciones</a>
-                <a href="#">Ofertas</a>
-<<<<<<< HEAD
-                <a href="{{ route('contacto') }}">Contacto</a>
-=======
-<<<<<<< Updated upstream
-                <a href="#">Contacto</a>
->>>>>>> Samuel
-                <a href="{{ url('/miCuenta') }}">Mi Cuenta</a>
-=======
+                <a href="{{ url('/#categorias') }}">Colecciones</a>
+                <a href="{{ url('/#destacados') }}">Ofertas</a>
                 <a href="{{ route('contacto') }}">Contacto</a>
                 @guest
                     <a href="{{ route('login') }}">Iniciar sesion</a>
@@ -38,7 +30,6 @@
                 @else
                     <a href="{{ route('dashboard') }}">Mi cuenta</a>
                 @endguest
->>>>>>> Stashed changes
             </nav>
             <div class="cart-icon">
                 <ion-icon name="cart-outline"></ion-icon>
@@ -49,7 +40,7 @@
         <!-- Hero -->
         <div class="hero">
             <div class="hero-content">
-                <h1 class="hero-title">Bienvenido User!</h1>
+                <h1 class="hero-title">Bienvenido {{ Auth::user()->name }}!</h1>
                 <p class="hero-subtitle">Aqui encontraras la informacion de tu cuenta.</p>
             </div>
         </div>
@@ -62,12 +53,12 @@
 
             <div class="categories-grid">
                 <!-- Category 1 -->
-                <div class="category-item">
+                <a class="category-item" href="{{ route('profile.edit') }}">
                     <div class="cat-card color-cream">
                         <ion-icon name="person-outline"></ion-icon>
                     </div>
                     <span>Mi perfil</span>
-                </div>
+                </a>
                 <!-- Category 2 -->
                 <div class="category-item">
                     <div class="cat-card color-pink">
@@ -83,12 +74,13 @@
                     <span>Favoritos</span>
                 </div>
                 <!-- Category 4 -->
-                <div class="category-item">
-                    <div class="cat-card color-red">
+                <form class="category-item" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="cat-card color-red" type="submit" aria-label="Cerrar sesion">
                         <ion-icon name="exit-outline"></ion-icon>
-                    </div>
+                    </button>
                     <span>Cerrar Sesion</span>
-                </div>
+                </form>
             </div>
         </section>
 
