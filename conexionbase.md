@@ -1,8 +1,8 @@
 # Base de datos ecommerce productos estetica
-DB_CONNECTION=sqlite
+DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=database/database.sqlite
+DB_DATABASE=ecommerce
 DB_FOREIGN_KEYS=true
 DB_USERNAME=root
 DB_PASSWORD=
@@ -422,3 +422,30 @@ FROM products
 INNER JOIN categories ON products.category_id = categories.id
 LEFT JOIN brands ON products.brand_id = brands.id
 WHERE products.id = 1;
+
+
+-- =========================
+-- INSERT DE VARIAS IMAGENES PARA EL MISMO PRODUCTO
+-- =========================
+
+-- =========================
+-- Para un mismo producto el Id tiene autoincrement y para tener varias imagenes de un mismo producto deben tener
+-- el mismo product_id a la hora de hacer mas inserts
+-- Cambiar el vinculo y la descripcion
+-- =========================
+
+INSERT INTO product_images (
+    product_id,
+    image_path,
+    alt_text,
+    is_primary,
+    created_at,
+    updated_at
+) VALUES (
+    1, -- Mismo ID del producto para que se vinculen
+    'https://http2.mlstatic.com/D_NQ_NP_2X_939646-MCO109182184073_032026-F.webp',
+    'Textura Protector Solar Tocobo',
+    0, -- Importante: Ponemos 0 porque la primera ya es la principal (is_primary = 1)
+    NOW(),
+    NOW()
+);
