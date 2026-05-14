@@ -24,14 +24,14 @@
                 <a href="#">Ofertas</a>
                 <a href="{{ route('contacto') }}">Contacto</a>
                 @guest
-                <a href="{{ route('login') }}">Iniciar sesion</a>
-                <a href="{{ route('register') }}">Registrarse</a>
+                    <a href="{{ route('login') }}">Iniciar sesion</a>
+                    <a href="{{ route('register') }}">Registrarse</a>
                 @else
-                <a href="{{ route('mi-cuenta') }}">Mi cuenta</a>
+                    <a href="{{ route('dashboard') }}">Mi cuenta</a>
                 @endguest
             </nav>
 
-            <div class="cart-icon">
+            <div class="cart-icon" onclick="window.location.href='/carrito'" style="cursor: pointer;">
                 <ion-icon name="bag-outline"></ion-icon>
                 <span class="cart-badge">0</span>
             </div>

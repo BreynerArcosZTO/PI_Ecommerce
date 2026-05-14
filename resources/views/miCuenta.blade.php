@@ -25,15 +25,15 @@
                 <a href="{{ url('/#destacados') }}">Ofertas</a>
                 <a href="{{ route('contacto') }}">Contacto</a>
                 @guest
-                <a href="{{ route('login') }}">Iniciar sesion</a>
-                <a href="{{ route('register') }}">Registrarse</a>
+                    <a href="{{ route('login') }}">Iniciar sesion</a>
+                    <a href="{{ route('register') }}">Registrarse</a>
                 @else
-                <a href="{{ route('dashboard') }}">Mi cuenta</a>
+                    <a href="{{ route('dashboard') }}">Mi cuenta</a>
                 @endguest
             </nav>
-            <div class="cart-icon">
-                <ion-icon name="cart-outline"></ion-icon>
-                <span class="cart-badge">2</span>
+            <div class="cart-icon" onclick="window.location.href='/carrito'" style="cursor: pointer;">
+                <ion-icon name="bag-outline"></ion-icon>
+                <span class="cart-badge">0</span>
             </div>
         </header>
 
@@ -74,6 +74,15 @@
                     <span>Favoritos</span>
                 </div>
                 <!-- Category 4 -->
+                @if (in_array(Auth::user()->role, ['admin', 'manager'], true))
+                    <a class="category-item" href="{{ route('manager.inventory.index') }}">
+                        <div class="cat-card color-blue">
+                            <ion-icon name="cube-outline"></ion-icon>
+                        </div>
+                        <span>Inventario</span>
+                    </a>
+                @endif
+                <!-- Category 5 -->
                 <form class="category-item" method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button class="cat-card color-red" type="submit" aria-label="Cerrar sesion">
@@ -86,5 +95,4 @@
 
         <script src="app.js"></script>
 </body>
-
 </html>

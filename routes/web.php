@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ManagerInventoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,24 +11,22 @@ Route::get('/', function () {
 
 Route::get('/producto/{id}', [ProductController::class, 'show'])->name('shop.detalle_producto');
 
+Route::get('/carrito', function () {
+    return view('shop.carrito');
+})->name('carrito');
+
 Route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
 
 Route::get('/cuenta', function () {
-    return Auth::check()
-        ? redirect()->route('mi-cuenta')
+    return auth()->check()
+        ? redirect()->route('dashboard')
         : redirect()->route('register');
 })->name('cuenta');
 
-Route::view('/mi-cuenta', 'miCuenta')
-    ->middleware(['auth', 'verified'])
-    ->name('mi-cuenta');
-
-Route::redirect('/miCuenta', '/mi-cuenta');
-
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('miCuenta');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -37,4 +35,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+Route::middleware(['auth', 'verified', 'manager'])->prefix('manager')->name('manager.')->group(function () {
+    Route::get('/inventario', [ManagerInventoryController::class, 'index'])->name('inventory.index');
+    Route::post('/productos', [ManagerInventoryController::class, 'store'])->name('products.store');
+    Route::put('/productos/{product}', [ManagerInventoryController::class, 'update'])->name('products.update');
+    Route::delete('/productos/{product}', [ManagerInventoryController::class, 'destroy'])->name('products.destroy');
+    Route::post('/categorias', [ManagerInventoryController::class, 'storeCategory'])->name('categories.store');
+    Route::patch('/categorias/{category}/estado', [ManagerInventoryController::class, 'toggleCategory'])->name('categories.toggle');
+});
+
+require __DIR__.'/auth.php';
