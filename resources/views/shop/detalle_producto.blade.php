@@ -734,14 +734,19 @@
                 thumb.classList.add('active');
             });
         });
-        
+
         function agregarAlCarrito(e) {
             e.preventDefault();
+
+            const precioBase = {{ $product->price }};
+            const precioConDescuento = Math.round(precioBase * 0.9);
 
             const producto = {
                 id: {{ $product->id }},
                 nombre: "{{ $product->name }}",
-                precio: {{ $product->price }},
+                precioOriginal: precioBase,
+                precioBase: precioBase,
+                precio: precioConDescuento,
                 imagen: "{{ $images->first()->image_path ?? 'https://via.placeholder.com/100' }}",
                 cantidad: 1
             };
@@ -757,7 +762,6 @@
 
             localStorage.setItem('carrito', JSON.stringify(carrito));
 
-            // Mostrar notificación
             const btn = e.target;
             const textoOriginal = btn.textContent;
             btn.textContent = '✓ Agregado al carrito';
@@ -766,7 +770,6 @@
             setTimeout(() => {
                 btn.textContent = textoOriginal;
                 btn.style.background = '';
-                // Actualizar badge del carrito
                 actualizarBadgeCarrito();
             }, 2000);
         }
