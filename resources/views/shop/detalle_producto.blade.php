@@ -734,6 +734,7 @@
                 thumb.classList.add('active');
             });
         });
+        
         function agregarAlCarrito(e) {
             e.preventDefault();
 
