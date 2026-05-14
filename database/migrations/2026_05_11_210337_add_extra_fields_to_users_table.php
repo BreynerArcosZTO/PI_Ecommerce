@@ -8,6 +8,10 @@ return new class extends Migration
 {
     public function up(): void
     {
+        if (! Schema::hasTable('users')) {
+            return;
+        }
+
         if (! Schema::hasColumn('users', 'phone')) {
             Schema::table('users', function (Blueprint $table) {
                 $table->string('phone', 50)->nullable()->after('password');
@@ -16,7 +20,7 @@ return new class extends Migration
 
         if (! Schema::hasColumn('users', 'role')) {
             Schema::table('users', function (Blueprint $table) {
-                $table->enum('role', ['admin', 'customer'])->default('customer')->after('phone');
+                $table->enum('role', ['admin', 'manager', 'customer'])->default('customer')->after('phone');
             });
         }
 
@@ -29,6 +33,10 @@ return new class extends Migration
 
     public function down(): void
     {
+        if (! Schema::hasTable('users')) {
+            return;
+        }
+
         $columns = array_filter(['phone', 'role', 'status'], function (string $column): bool {
             return Schema::hasColumn('users', $column);
         });

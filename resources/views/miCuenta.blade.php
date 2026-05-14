@@ -74,6 +74,15 @@
                     <span>Favoritos</span>
                 </div>
                 <!-- Category 4 -->
+                @if (in_array(Auth::user()->role, ['admin', 'manager'], true))
+                    <a class="category-item" href="{{ route('manager.inventory.index') }}">
+                        <div class="cat-card color-blue">
+                            <ion-icon name="cube-outline"></ion-icon>
+                        </div>
+                        <span>Inventario</span>
+                    </a>
+                @endif
+                <!-- Category 5 -->
                 <form class="category-item" method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button class="cat-card color-red" type="submit" aria-label="Cerrar sesion">
