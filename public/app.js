@@ -57,4 +57,21 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach(el => {
         intersectionObserver.observe(el);
     });
+
+    // Actualizar badge del carrito
+    function actualizarBadgeCarrito() {
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+        
+        // Actualizar todos los badges en la página
+        document.querySelectorAll('.cart-badge').forEach(badge => {
+            badge.textContent = totalItems;
+        });
+    }
+
+    // Ejecutar al cargar la página
+    actualizarBadgeCarrito();
+
+    // Escuchar cambios en localStorage desde otras tabs/ventanas
+    window.addEventListener('storage', actualizarBadgeCarrito);
 });

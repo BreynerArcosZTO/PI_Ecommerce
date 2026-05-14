@@ -31,9 +31,9 @@
                     <a href="{{ route('dashboard') }}">Mi cuenta</a>
                 @endguest
             </nav>
-            <div class="cart-icon">
-                <ion-icon name="cart-outline"></ion-icon>
-                <span class="cart-badge">2</span>
+            <div class="cart-icon" onclick="window.location.href='/carrito'" style="cursor: pointer;">
+                <ion-icon name="bag-outline"></ion-icon>
+                <span class="cart-badge">0</span>
             </div>
         </header>
 

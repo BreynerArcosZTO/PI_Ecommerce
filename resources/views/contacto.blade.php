@@ -253,7 +253,7 @@
             @endguest
         </nav>
 
-        <div class="cart-icon">
+        <div class="cart-icon" onclick="window.location.href='/carrito'" style="cursor: pointer;">
             <ion-icon name="bag-outline"></ion-icon>
             <span class="cart-badge">0</span>
         </div>

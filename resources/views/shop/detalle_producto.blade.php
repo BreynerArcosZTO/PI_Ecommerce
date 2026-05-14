@@ -539,7 +539,7 @@
                     <a href="{{ route('dashboard') }}">Mi cuenta</a>
                 @endguest
             </nav>
-            <div class="cart-icon">
+            <div class="cart-icon" onclick="window.location.href='/carrito'" style="cursor: pointer;">
                 <ion-icon name="bag-outline"></ion-icon>
                 <span class="cart-badge">0</span>
             </div>
@@ -651,7 +651,7 @@
                     </p>
                 </div> --}}
 
-                <button class="btn-cart">AGREGAR AL CARRITO</button>
+                <button class="btn-cart" onclick="agregarAlCarrito(event)">AGREGAR AL CARRITO</button>
 
                 <!-- Trust icons -->
                 <div class="trust-grid">
@@ -726,6 +726,59 @@
 
     </div><!-- /main-container -->
 
-    <script src="app.js"></script>
+    <script>
+        function agregarAlCarrito(e) {
+            e.preventDefault();
+            
+            const producto = {
+                id: {{ $product->id }},
+                nombre: "{{ $product->name }}",
+                precio: {{ $product->price }},
+                imagen: "{{ $images->first()->image_path ?? 'https://via.placeholder.com/100' }}",
+                cantidad: 1
+            };
+
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const existe = carrito.find(item => item.id === producto.id);
+            
+            if (existe) {
+                existe.cantidad += 1;
+            } else {
+                carrito.push(producto);
+            }
+
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            
+            // Mostrar notificación
+            const btn = e.target;
+            const textoOriginal = btn.textContent;
+            btn.textContent = '✓ Agregado al carrito';
+            btn.style.background = '#34d399';
+            
+            setTimeout(() => {
+                btn.textContent = textoOriginal;
+                btn.style.background = '';
+                // Actualizar badge del carrito
+                actualizarBadgeCarrito();
+            }, 2000);
+        }
+
+        function actualizarBadgeCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const total = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+            const badge = document.querySelector('.cart-badge');
+            if (badge) {
+                badge.textContent = total;
+            }
+        }
+
+        // Actualizar badge al cargar la página
+        document.addEventListener('DOMContentLoaded', actualizarBadgeCarrito);
+
+        // Hacer el icono del carrito clickeable
+        document.querySelector('.cart-icon').addEventListener('click', () => {
+            window.location.href = '/carrito';
+        });
+    </script>
 </body>
 </html>

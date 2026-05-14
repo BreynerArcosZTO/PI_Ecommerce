@@ -10,6 +10,10 @@ Route::get('/', function () {
 
 Route::get('/producto/{id}', [ProductController::class, 'show'])->name('shop.detalle_producto');
 
+Route::get('/carrito', function () {
+    return view('shop.carrito');
+})->name('carrito');
+
 Route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
