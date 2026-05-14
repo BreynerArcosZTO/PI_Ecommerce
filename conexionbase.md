@@ -1,8 +1,8 @@
 # Base de datos ecommerce productos estetica
-DB_CONNECTION=sqlite
+DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=database/database.sqlite
+DB_DATABASE=ecommerce
 DB_FOREIGN_KEYS=true
 DB_USERNAME=root
 DB_PASSWORD=
