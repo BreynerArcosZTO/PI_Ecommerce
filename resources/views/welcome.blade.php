@@ -116,7 +116,7 @@
                 <div class="product-card">
                     <div class="wishlist-icon"><ion-icon name="heart-outline"></ion-icon></div>
                     <a href="{{ route('shop.detalle_producto', 1) }}">
-                    <img src="https://medipielsa.vtexassets.com/arquivos/ids/1338171-1200-auto?v=639072031104430000&width=1200&height=auto&aspect=true" alt="Protector Solar Tocobo">
+                        <img src="https://medipielsa.vtexassets.com/arquivos/ids/1338171-1200-auto?v=639072031104430000&width=1200&height=auto&aspect=true" alt="Protector Solar Tocobo">
                     </a>
                 </div>
                 <!-- Product 2 -->
