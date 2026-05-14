@@ -122,17 +122,23 @@
                 <!-- Product 2 -->
                 <div class="product-card">
                     <div class="wishlist-icon"><ion-icon name="heart-outline"></ion-icon></div>
-                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Vitamin C">
+                    <a href="{{ route('shop.detalle_producto', 2) }}">
+                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Vitamin C">
+                    </a>
                 </div>
                 <!-- Product 3 -->
                 <div class="product-card">
                     <div class="wishlist-icon"><ion-icon name="heart-outline"></ion-icon></div>
-                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Cleanser">
+                    <a href="{{ route('shop.detalle_producto', 3) }}">
+                        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Cleanser">
+                    </a>
                 </div>
                 <!-- Product 4 -->
                 <div class="product-card">
                     <div class="wishlist-icon"><ion-icon name="heart-outline"></ion-icon></div>
-                    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Toner">
+                    <a href="{{ route('shop.detalle_producto', 4) }}">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Toner">
+                    </a>
                 </div>
             </div>
         </section>
