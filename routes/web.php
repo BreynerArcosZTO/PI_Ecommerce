@@ -8,20 +8,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/producto/{id}', [ProductController::class, 'show'])->name('shop.detalle_producto');
 
-Route::get('/carrito', function () {
-    return view('shop.carrito');
-})->name('carrito');
+Route::middleware('auth')->group(function () {
+    Route::get('/carrito', function () {
+        return view('shop.carrito');
+    })->name('carrito');
 
-Route::get('/pagos', function () {
-    return view('shop.pagos');
-})->name('pagos');
+    Route::get('/pagos', function () {
+        return view('shop.pagos');
+    })->name('pagos');
 
-Route::post('/pagos/confirmar', [PaymentController::class, 'store'])->name('payment.store');
-Route::get('/pagos/confirmacion/{id}', [PaymentController::class, 'confirmation'])->name('payment.confirmation');
+    Route::post('/pagos/confirmar', [PaymentController::class, 'store'])->name('payment.store');
+    Route::get('/pagos/confirmacion/{id}', [PaymentController::class, 'confirmation'])->name('payment.confirmation');
+});
 
 Route::get('/contacto', function () {
     return view('contacto');

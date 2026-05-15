@@ -331,6 +331,18 @@
             box-shadow: 0 15px 35px rgba(255, 159, 178, 0.4);
         }
 
+        .checkout-auth-message {
+            color: #b42318;
+            background: rgba(180, 35, 24, 0.08);
+            border: 1px solid rgba(180, 35, 24, 0.18);
+            border-radius: 14px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            line-height: 1.45;
+            padding: 10px 12px;
+            text-align: center;
+        }
+
         .btn-secondary {
             background: transparent;
             color: #1f1f1f;
@@ -434,6 +446,9 @@
                     <button class="btn btn-primary" onclick="proceedToCheckout()">
                         <ion-icon name="card-outline"></ion-icon> Proceder al pago
                     </button>
+                    @guest
+                        <p class="checkout-auth-message">Ingresa o registrate para continuar con el pago</p>
+                    @endguest
                     <a href="/" class="btn btn-secondary">Seguir comprando</a>
                 </div>
             </div>

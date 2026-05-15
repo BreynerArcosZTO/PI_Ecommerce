@@ -10,6 +10,14 @@ class PaymentController extends Controller
 {
     public function store(Request $request)
     {
+        if (! Auth::check()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Debes iniciar sesion para continuar con el pago.',
+                'redirect' => route('login'),
+            ], 401);
+        }
+
         $validated = $request->validate([
             'recipient_name' => 'required|string|max:255',
             'phone' => 'required|string|regex:/^[0-9\s\-\+\(\)]+$/|max:20',
@@ -21,11 +29,11 @@ class PaymentController extends Controller
             'address_line_2' => 'nullable|string|max:255',
             'reference' => 'nullable|string|max:500',
             'payment_method' => 'required|in:transfer',
+            'order_data' => 'required|array|min:1',
         ]);
 
         $validated['user_id'] = Auth::id();
         $validated['status'] = 'pending';
-        $validated['order_data'] = $request->input('order_data', []);
 
         $address = Address::create($validated);
 
@@ -38,12 +46,7 @@ class PaymentController extends Controller
 
     public function confirmation($id)
     {
-        $address = Address::findOrFail($id);
-
-        // Verificar que solo el usuario dueño pueda ver su confirmación
-        if ($address->user_id && $address->user_id !== Auth::id()) {
-            abort(403);
-        }
+        $address = Address::where('user_id', Auth::id())->findOrFail($id);
 
         return view('shop.confirmation', ['address' => $address]);
     }

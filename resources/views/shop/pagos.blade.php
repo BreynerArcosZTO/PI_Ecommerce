@@ -641,9 +641,15 @@
                 const result = await response.json();
 
                 if (!response.ok) {
+                    if (response.status === 401 && result.redirect) {
+                        alert(result.message || 'Ingresa o registrate para continuar con el pago.');
+                        window.location.href = result.redirect;
+                        return;
+                    }
+
                     const errors = result.errors || {};
                     const errorMessages = Object.values(errors).flat().join('\n');
-                    alert('Error en el formulario:\n' + errorMessages);
+                    alert(errorMessages ? 'Error en el formulario:\n' + errorMessages : (result.message || 'Error al procesar el pago.'));
                     return;
                 }
 

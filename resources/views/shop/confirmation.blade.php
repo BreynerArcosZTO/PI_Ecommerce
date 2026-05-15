@@ -119,6 +119,14 @@
             font-weight: 600;
         }
 
+        .payment-note {
+            color: #555;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-top: 18px;
+            max-width: 430px;
+        }
+
         #qr-code {
             display: flex;
             justify-content: center;
@@ -165,9 +173,33 @@
             margin-top: 30px;
         }
 
-        .countdown {
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border-radius: 999px;
+            padding: 13px 18px;
+            text-decoration: none;
+            font-size: 0.92rem;
             font-weight: 700;
-            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff9fb2 0%, #ff859a 100%);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            border: 2px solid #ffd880;
+            color: #1f1f1f;
+            background: transparent;
         }
 
         @media (max-width: 768px) {
@@ -183,11 +215,31 @@
                 grid-template-columns: 1fr;
                 gap: 5px;
             }
+
+            .actions {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 
 <body>
+    @php
+        $orderItems = collect($address->order_data ?? []);
+        $orderTotal = $orderItems->sum(function ($item) {
+            return (float) ($item['precio'] ?? 0) * (int) ($item['cantidad'] ?? 1);
+        });
+        $qrPayload = [
+            'pedido' => $address->id,
+            'metodo' => 'Transferencia',
+            'total' => $orderTotal,
+            'destinatario' => $address->recipient_name,
+            'telefono' => $address->phone,
+            'ciudad' => $address->city . ', ' . $address->department,
+            'direccion' => trim($address->address_line_1 . ' ' . ($address->address_line_2 ?? '')),
+        ];
+    @endphp
+
     <div class="container">
         <div class="confirmation-card">
             <div class="success-icon">
@@ -197,12 +249,16 @@
             <h1>¡Pedido Confirmado!</h1>
             <p class="subtitle">
                 Tu pedido ha sido registrado exitosamente.<br>
-                Realiza la transferencia según los datos de tu QR.
+                Escanea el QR y realiza la transferencia para completar el pago.
             </p>
 
             <div class="qr-section">
                 <div class="qr-label">Escanea este código QR</div>
                 <div id="qr-code"></div>
+                <p class="payment-note">
+                    El QR contiene el ID del pedido, el total y los datos de entrega para identificar tu pago.
+                    Cuando hagas la transferencia, usa el pedido #{{ $address->id }} como referencia.
+                </p>
             </div>
 
             <div class="order-details">
@@ -230,43 +286,36 @@
                         @endif
                     </div>
                 </div>
+                <div class="detail-row">
+                    <div class="detail-label">Total:</div>
+                    <div class="detail-value">${{ number_format($orderTotal, 0, ',', '.') }}</div>
+                </div>
             </div>
 
-            <p class="redirect-info">
-                Serás redirigido al inicio en <span class="countdown" id="countdown">5</span> segundos...
-            </p>
+            <div class="actions">
+                <a href="{{ route('welcome') }}" class="btn btn-secondary">Volver al inicio</a>
+                <a href="{{ route('dashboard') }}" class="btn btn-primary">Ir a mi cuenta</a>
+            </div>
         </div>
     </div>
 
     <script>
         // Generar QR con la información del pedido
-        const qrData = `PEDIDO: #{{ $address->id }}
-DESTINATARIO: {{ $address->recipient_name }}
-TELEFONO: {{ $address->phone }}
-CIUDAD: {{ $address->city }}, {{ $address->department }}
-DIRECCION: {{ $address->address_line_1 }}`;
+        const qrData = @json(json_encode($qrPayload, JSON_UNESCAPED_UNICODE));
+        const qrContainer = document.getElementById('qr-code');
 
-        const qrCode = new QRCode(document.getElementById('qr-code'), {
-            text: qrData,
-            width: 250,
-            height: 250,
-            colorDark: '#1f1f1f',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.H
-        });
-
-        // Countdown y redirección
-        let seconds = 5;
-        const countdownElement = document.getElementById('countdown');
-
-        setInterval(() => {
-            seconds--;
-            countdownElement.textContent = seconds;
-
-            if (seconds === 0) {
-                window.location.href = '{{ route("welcome") }}';
-            }
-        }, 1000);
+        if (window.QRCode) {
+            new QRCode(qrContainer, {
+                text: qrData,
+                width: 250,
+                height: 250,
+                colorDark: '#1f1f1f',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        } else {
+            qrContainer.innerHTML = '<p class="payment-note">No se pudo cargar el generador de QR. Recarga la pagina o usa el pedido #{{ $address->id }} como referencia.</p>';
+        }
     </script>
 </body>
 

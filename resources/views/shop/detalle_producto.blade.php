@@ -648,7 +648,7 @@
                     </p>
                 </div> --}}
 
-                <button class="btn-cart" onclick="agregarAlCarrito(event)">AGREGAR AL CARRITO</button>
+                <button class="btn-cart" id="addToCartButton" type="button">AGREGAR AL CARRITO</button>
 
                 <!-- Trust icons -->
                 <div class="trust-grid">
@@ -735,42 +735,41 @@
             });
         });
 
-        function agregarAlCarrito(e) {
-            e.preventDefault();
-
+        function agregarAlCarrito(button) {
             const precioBase = {{ $product->price }};
             const precioConDescuento = Math.round(precioBase * 0.9);
 
             const producto = {
                 id: {{ $product->id }},
-                nombre: "{{ $product->name }}",
+                nombre: @js($product->name),
                 precioOriginal: precioBase,
                 precioBase: precioBase,
                 precio: precioConDescuento,
-                imagen: "{{ $images->first()->image_path ?? 'https://via.placeholder.com/100' }}",
+                imagen: @js($images->first()->image_path ?? 'https://via.placeholder.com/100'),
                 cantidad: 1
             };
 
             let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const existe = carrito.find(item => item.id === producto.id);
+            const existe = carrito.find(item => Number(item.id) === Number(producto.id));
 
             if (existe) {
-                existe.cantidad += 1;
+                existe.cantidad = Number(existe.cantidad || 0) + 1;
             } else {
                 carrito.push(producto);
             }
 
             localStorage.setItem('carrito', JSON.stringify(carrito));
+            actualizarBadgeCarrito();
 
-            const btn = e.target;
-            const textoOriginal = btn.textContent;
-            btn.textContent = '✓ Agregado al carrito';
-            btn.style.background = '#34d399';
+            const textoOriginal = button.dataset.originalText || button.textContent;
+            button.dataset.originalText = textoOriginal;
+            button.textContent = '✓ Agregado al carrito';
+            button.style.background = '#34d399';
+            button.blur();
 
             setTimeout(() => {
-                btn.textContent = textoOriginal;
-                btn.style.background = '';
-                actualizarBadgeCarrito();
+                button.textContent = textoOriginal;
+                button.style.background = '';
             }, 2000);
         }
 
@@ -784,7 +783,14 @@
         }
 
         // Actualizar badge al cargar la página
-        document.addEventListener('DOMContentLoaded', actualizarBadgeCarrito);
+        document.addEventListener('DOMContentLoaded', () => {
+            actualizarBadgeCarrito();
+
+            const addToCartButton = document.getElementById('addToCartButton');
+            if (addToCartButton) {
+                addToCartButton.addEventListener('click', () => agregarAlCarrito(addToCartButton));
+            }
+        });
 
         // Hacer el icono del carrito clickeable
         document.querySelector('.cart-icon').addEventListener('click', () => {
