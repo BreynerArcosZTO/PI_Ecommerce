@@ -6,7 +6,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-        <link rel="icon" type="image/webp" href="{{ asset('Eterna-Koreana-icon.webp') }}">
+        <link rel="icon" type="image/png" href="{{ asset('Eterna-Koreana-icon.png') }}?v=2">
+    <link rel="shortcut icon" href="{{ asset('Eterna-Koreana-icon.png') }}?v=2">
+    <link rel="apple-touch-icon" href="{{ asset('Eterna-Koreana-icon.png') }}?v=2">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
