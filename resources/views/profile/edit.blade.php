@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil - Eterna Koreana</title>
+    <link rel="icon" type="image/webp" href="{{ asset('Eterna-Koreana-icon.webp') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -336,14 +337,14 @@
             text-align: center;
             padding: 30px;
             font-size: 0.9rem;
-            color: #999;
+            color: #ffffff;
             margin-top: 40px;
         }
 
         .profile-footer a {
-            color: #ff9fb2;
+            color: #ffffff;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .profile-footer a:hover {
@@ -482,7 +483,7 @@
         </div>
 
         <!-- Card 3: Zona de Peligro -->
-        <div class="profile-card" style="border-left: 4px solid #ff6b6b; margin-top: 25px;">
+        <div class="profile-card" style="border: 3px solid #ff6b6b; margin-top: 25px;">
             <div class="card-header">
                 <div class="card-icon" style="background: rgba(255, 107, 107, 0.2);">
                     <ion-icon name="warning-outline" style="color: #ff6b6b;"></ion-icon>

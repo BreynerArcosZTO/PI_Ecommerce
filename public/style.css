@@ -135,6 +135,18 @@ body {
   color: #2a2a2a;
 }
 
+.hero-content img{
+  width: 400px;
+  max-width: 100%;
+  position: absolute;
+  transform: translate(42%, -46%);
+}
+
+.logo_hero{
+  width: 100%;
+  height: auto;
+}
+
 .description {
   font-size: 1rem;
   color: #6b6b6b;
@@ -863,6 +875,17 @@ body {
   .manager-table-head,
   .manager-product-row {
     min-width: 860px;
+  }
+  .hero-content img{
+    width: 100px;
+    max-width: 100%;
+    position: absolute;
+    transform: translate(-50%, -108%);
+  }
+
+  .logo_hero{
+    width: 100%;
+    height: auto;
   }
 }
 

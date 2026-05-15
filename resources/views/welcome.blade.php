@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="style.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <link rel="icon" type="image/webp" href="{{ asset('Eterna-Koreana-icon.webp') }}">
 </head>
 
 <body id="inicio">
@@ -41,7 +43,13 @@
         <section class="hero">
             <div class="hero-content">
                 <p class="subtitle">Productos originales</p>
-                <h1>Eterna Koreana</h1>
+
+                <div class="logo_hero">
+                    <img src="{{ asset('Eterna-Koreana-icon.webp') }}" alt="">
+                    <h1>Eterna <br>Koreana</h1>
+                </div>
+
+                </h1>
                 <p class="description">Compra las mejores marcas y al mejor precio con envíos a todo Colombia.</p>
                 <a href="#categorias" class="btn-primary">Ver colecciones</a>
             </div>
