@@ -217,7 +217,9 @@
 
     <header class="navbar">
         <div class="logo">
-            <div class="logo-circle">K</div>
+            <div class="logo-circle">
+                <img src="{{ asset('Eterna-Koreana-icon.png') }}" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
         </div>
         <nav class="nav-links">
             <a href="/">Inicio</a>

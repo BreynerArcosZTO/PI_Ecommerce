@@ -388,7 +388,9 @@
 
 <body>
     <header class="navbar">
-        <div class="logo-circle" onclick="window.location.href='{{ route('carrito') }}'">K</div>
+        <div class="logo-circle" onclick="window.location.href='{{ route('carrito') }}'">
+            <img src="{{ asset('Eterna-Koreana-icon.png') }}" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
         <nav class="nav-links">
             <a href="{{ route('carrito') }}">
                 <ion-icon name="arrow-back-outline"></ion-icon>

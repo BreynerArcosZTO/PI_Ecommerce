@@ -394,7 +394,9 @@
 
 <body>
     <header class="navbar">
-        <div class="logo-circle" onclick="window.location.href='/'">K</div>
+        <div class="logo-circle"  onclick="window.location.href='/'">
+            <img src="{{ asset('Eterna-Koreana-icon.png') }}" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
         <nav class="nav-links">
             <a href="/">Inicio</a>
             <a href="/#categorias">Colecciones</a>
