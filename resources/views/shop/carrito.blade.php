@@ -514,7 +514,14 @@
         }
 
         function proceedToCheckout() {
-            alert('En construcción: Sistema de pago 💳');
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            if (carrito.length === 0) {
+                alert('Tu carrito esta vacio. Agrega productos antes de pagar.');
+                return;
+            }
+
+            window.location.href = "{{ route('pagos') }}";
         }
 
         // Cargar carrito al entrar
