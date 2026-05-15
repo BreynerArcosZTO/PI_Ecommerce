@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Online de Cosméticos Coreanos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -28,10 +29,10 @@
                 <a href="#">Ofertas</a>
                 <a href="{{ route('contacto') }}">Contacto</a>
                 @guest
-                <a href="{{ route('login') }}">Iniciar sesion</a>
-                <a href="{{ route('register') }}">Registrarse</a>
+                    <a href="{{ route('login') }}">Iniciar sesion</a>
+                    <a href="{{ route('register') }}">Registrarse</a>
                 @else
-                <a href="{{ route('dashboard') }}">Mi cuenta</a>
+                    <a href="{{ route('dashboard') }}">Mi cuenta</a>
                 @endguest
             </nav>
 
@@ -77,36 +78,28 @@
             <div class="categories-grid">
                 <!-- Category 1 -->
                 <div class="category-item">
-                    <div class="cat-card color-pink">
-                        <ion-icon name="shirt-outline"></ion-icon>
-                    </div>
-                    <span>Ropa Meiliss</span>
-                </div>
-                <!-- Category 2 -->
-                <div class="category-item">
-                    <div class="cat-card color-peach">
-                        <ion-icon name="gift-outline"></ion-icon>
-                    </div>
-                    <span>Ofertas klynskin</span>
-                </div>
-                <!-- Category 3 -->
-                <div class="category-item">
                     <div class="cat-card color-green">
-                        <ion-icon name="pricetags-outline"></ion-icon>
+                        <a href="{{ url('/productos') }}#categorias">
+                            <ion-icon name="pricetags-outline" style="color: #ffa8a8;"></ion-icon>
+                        </a>
                     </div>
                     <span>Marcas</span>
                 </div>
-                <!-- Category 4 -->
+                <!-- Category 2 -->
                 <div class="category-item">
                     <div class="cat-card color-cream">
-                        <ion-icon name="water-outline"></ion-icon>
+                        <a href="{{ url('/productos') }}#destacados">
+                            <ion-icon name="water-outline" style="color: #d8ec63;"></ion-icon>
+                        </a>
                     </div>
                     <span>Cuidado Capilar y Corporal</span>
                 </div>
-                <!-- Category 5 -->
+                <!-- Category 3 -->
                 <div class="category-item">
                     <div class="cat-card color-blue">
-                        <ion-icon name="happy-outline"></ion-icon>
+                        <a href="{{ url('/productos') }}#destacados">
+                            <ion-icon name="happy-outline" style="color: #92ceff;"></ion-icon>
+                        </a>
                     </div>
                     <span>Skincare</span>
                 </div>
@@ -126,28 +119,32 @@
                 <div class="product-card">
                     <div class="wishlist-icon"><ion-icon name="heart-outline"></ion-icon></div>
                     <a href="{{ route('shop.detalle_producto', 1) }}">
-                        <img src="https://medipielsa.vtexassets.com/arquivos/ids/1338171-1200-auto?v=639072031104430000&width=1200&height=auto&aspect=true" alt="Protector Solar Tocobo">
+                        <img src="https://medipielsa.vtexassets.com/arquivos/ids/1338171-1200-auto?v=639072031104430000&width=1200&height=auto&aspect=true"
+                            alt="Protector Solar Tocobo">
                     </a>
                 </div>
                 <!-- Product 2 -->
                 <div class="product-card">
                     <div class="wishlist-icon"><ion-icon name="heart-outline"></ion-icon></div>
                     <a href="{{ route('shop.detalle_producto', 2) }}">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_873658-MLA108327088445_032026-F.webp" alt="Tratamiento Efecto Botox Capilar">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_873658-MLA108327088445_032026-F.webp"
+                            alt="Tratamiento Efecto Botox Capilar">
                     </a>
                 </div>
                 <!-- Product 3 -->
                 <div class="product-card">
                     <div class="wishlist-icon"><ion-icon name="heart-outline"></ion-icon></div>
                     <a href="{{ route('shop.detalle_producto', 3) }}">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_882638-CBT108447574377_032026-F.webp" alt="Serum Acido Hialuronico">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_882638-CBT108447574377_032026-F.webp"
+                            alt="Serum Acido Hialuronico">
                     </a>
                 </div>
                 <!-- Product 4 -->
                 <div class="product-card">
                     <div class="wishlist-icon"><ion-icon name="heart-outline"></ion-icon></div>
                     <a href="{{ route('shop.detalle_producto', 4) }}">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_676330-MLA92609821108_092025-F.webp" alt="Exfoliante Cafe">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_676330-MLA92609821108_092025-F.webp"
+                            alt="Exfoliante Cafe">
                     </a>
                 </div>
             </div>

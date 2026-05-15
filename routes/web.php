@@ -10,6 +10,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/productos', function () {
+    return view('productos'); // Ruta para catalogo (productos.blade.php)
+})->name('/productos');
+
 Route::get('/producto/{id}', [ProductController::class, 'show'])->name('shop.detalle_producto');
 
 Route::middleware('auth')->group(function () {
