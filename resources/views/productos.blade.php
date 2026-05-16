@@ -42,8 +42,8 @@
     }
 
     html {
-    scroll-behavior: smooth;
-}
+        scroll-behavior: smooth;
+    }
 </style>
 
 <body>
@@ -52,7 +52,8 @@
         <header class="navbar" id="navbar">
             <div class="logo">
                 <div class="logo-circle">
-                    <img src="{{ asset('Eterna-Koreana-icon.png') }}" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="{{ asset('Eterna-Koreana-icon.png') }}" alt="Logo"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
             <nav class="nav-links">
@@ -77,34 +78,44 @@
         <!-- Marcas Section -->
         <section class="categories-section" id="categorias">
             <div class="section-header">
-                <h1>Nuestras Marcas</h1>
+                <h1>¡Nuestras Marcas!</h1>
                 <div class="header-line"></div>
-                <a href="#destacados" class="btn-outline">Ver todo</a>
+                <a href="#categorias" class="btn-outline">Ver todo</a>
             </div>
 
             <div class="categories-grid">
                 <!-- Marcas -->
                 <div class="category-item">
-                    <div class="cat-card color-green">
-                            <a href="https://tocobo.com.co/">
-                                <img src="https://arumi.cl/cdn/shop/files/TOCOBO_LOGO.png?v=1724175406&width=750" alt="Logo Tocobo" style="width: 300px; height: auto;">
-                            </a>
-                    </div>
-                    <span>Tocobo</span>
+                    <a href="https://tocobo.com.co/"
+                        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; width: 100%;">
+                        <div class="cat-card color-green">
+                            <img src="https://arumi.cl/cdn/shop/files/TOCOBO_LOGO.png?v=1724175406&width=750"
+                                alt="Logo Tocobo" style="width: 300px; height: auto;">
+                        </div>
+                        <span>Tocobo</span>
+                    </a>
                 </div>
                 <!-- Marcas -->
                 <div class="category-item">
-                    <div class="cat-card color-cream">
-                        <ion-icon name="add-circle-outline"></ion-icon>
-                    </div>
-                    <span>Nuevas marcas pronto</span>
+                    <a href="https://luxeny.cl/"
+                        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; width: 100%;">
+                        <div class="cat-card color-green">
+                            <img src="https://luxeny.cl/cdn/shop/files/logo-luxeny.png?v=1714175406&width=750"
+                                alt="Logo Luxeny" style="width: 300px; height: auto;">
+                        </div>
+                        <span>Luxeny</span>
+                    </a>
                 </div>
                 <!-- Marcas -->
                 <div class="category-item">
-                    <div class="cat-card color-blue">
-                        <ion-icon name="add-circle-outline"></ion-icon>
-                    </div>
-                    <span>Nuevas marcas pronto</span>
+                    <a href="https://eelhoe-cosmetics.com/es"
+                        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; width: 100%;">
+                        <div class="cat-card color-green">
+                            <img src="https://eelhoe-cosmetics.com/cdn/shop/files/eelhoe_cosmetics.png?v=1715983201&width=280"
+                                alt="Logo Eelhoe" style="width: 300px; height: auto;">
+                        </div>
+                        <span>Eelhoe</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -114,7 +125,7 @@
             <div class="section-header">
                 <h1>¡Aqui veras el Catalogo!</h1>
                 <div class="header-line"></div>
-                <a href="#inicio" class="btn-outline">Ver todo</a>
+                <a href="#destacados" class="btn-outline">Ver todo</a>
             </div>
 
             <div class="products-grid">
@@ -152,6 +163,12 @@
                 </div>
             </div>
         </section>
+        <section class="featured-section" id="footpage">
+            <div class="section-header">
+                <h1>¡Pronto añadiremos nuevos productos!</h1>
+                <div class="header-line"></div>
+                <a href="#footpage" class="btn-outline">...</a>
+            </div>
     </div>
 </body>
 

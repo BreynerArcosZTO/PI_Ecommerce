@@ -279,7 +279,7 @@
                         <div class="icon"><ion-icon name="logo-whatsapp"></ion-icon></div>
                         <div>
                             <h4>WhatsApp</h4>
-                            <p>+57 300 123 4567</p>
+                            <p>+57 315 4303580</p>
                         </div>
                     </div>
                     <div class="info-card">
@@ -300,7 +300,7 @@
                         <div class="icon"><ion-icon name="location-outline"></ion-icon></div>
                         <div>
                             <h4>Ubicación</h4>
-                            <p>Medellín, Colombia</p>
+                            <p>Cali, Colombia</p>
                         </div>
                     </div>
                 </div>

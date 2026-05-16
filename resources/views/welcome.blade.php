@@ -21,8 +21,9 @@
         <!-- Header -->
         <header class="navbar" id="navbar">
             <div class="logo">
-                <div class="logo-circle"> 
-                    <img src="{{ asset('Eterna-Koreana-icon.png') }}" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="logo-circle">
+                    <img src="{{ asset('Eterna-Koreana-icon.png') }}" alt="Logo"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
             <nav class="nav-links">
@@ -74,36 +75,35 @@
             <div class="section-header">
                 <h2>Categorías</h2>
                 <div class="header-line"></div>
-                <a href="#destacados" class="btn-outline">Ver todo</a>
+                <a href="{{ url('/productos') }}#categorias" class="btn-outline">Ver todo</a>
             </div>
-
             <div class="categories-grid">
-                <!-- Category 1 -->
                 <div class="category-item">
-                    <div class="cat-card color-green">
-                        <a href="{{ url('/productos') }}#categorias">
+                    <a href="{{ url('/productos') }}#categorias"
+                        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; width: 100%;">
+                        <div class="cat-card color-green">
                             <ion-icon name="pricetags-outline" style="color: #ffa8a8;"></ion-icon>
-                        </a>
-                    </div>
-                    <span>Marcas</span>
+                        </div>
+                        <span>Marcas</span>
+                    </a>
                 </div>
-                <!-- Category 2 -->
                 <div class="category-item">
-                    <div class="cat-card color-cream">
-                        <a href="{{ url('/productos') }}#destacados">
+                    <a href="{{ url('/productos') }}#destacados"
+                        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; width: 100%;">
+                        <div class="cat-card color-cream">
                             <ion-icon name="water-outline" style="color: #d8ec63;"></ion-icon>
-                        </a>
-                    </div>
-                    <span>Cuidado Capilar y Corporal</span>
+                        </div>
+                        <span>Cuidado Capilar y Corporal</span>
+                    </a>
                 </div>
-                <!-- Category 3 -->
                 <div class="category-item">
-                    <div class="cat-card color-blue">
-                        <a href="{{ url('/productos') }}#destacados">
+                    <a href="{{ url('/productos') }}#destacados"
+                        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; width: 100%;">
+                        <div class="cat-card color-blue">
                             <ion-icon name="happy-outline" style="color: #92ceff;"></ion-icon>
-                        </a>
-                    </div>
-                    <span>Skincare</span>
+                        </div>
+                        <span>Skincare</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -113,7 +113,7 @@
             <div class="section-header">
                 <h2>Destacados</h2>
                 <div class="header-line"></div>
-                <a href="#inicio" class="btn-outline">Ver todo</a>
+                <a href="#destacados" class="btn-outline">Ver todo</a>
             </div>
 
             <div class="products-grid">
