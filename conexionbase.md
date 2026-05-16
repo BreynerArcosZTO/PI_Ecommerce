@@ -449,3 +449,51 @@ INSERT INTO product_images (
     NOW(),
     NOW()
 );
+-- =========================
+-- INSERT LOS DEMAS PRODUCTOS
+-- =========================
+
+-- =========================
+ESTOS PRODUCTOS FUERON GENERADOS DESDE LA PAGINA (INVENTARIO MANAGER)
+-- =========================
+
+Producto 2 https://http2.mlstatic.com/D_NQ_NP_2X_873658-MLA108327088445_032026-F.webp
+Producto 3 https://http2.mlstatic.com/D_NQ_NP_2X_882638-CBT108447574377_032026-F.webp
+Producto 4 https://http2.mlstatic.com/D_NQ_NP_2X_676330-MLA92609821108_092025-F.webp
+
+-- =========================
+-- INSERT BRANDS ( MARCAS ) PARA EELHOE Y LUXENY
+-- =========================
+
+
+INSERT INTO brands (
+    name,
+    slug,
+    description,
+    status,
+    created_at,
+    updated_at
+) VALUES (
+    'EELHOE',
+    'eelhoe',
+    'Revela tu luminosidad natural con productos innovadores para el cuidado de la piel.',
+    'active',
+    NOW(),
+    NOW()
+);
+
+INSERT INTO brands (
+    name,
+    slug,
+    description,
+    status,
+    created_at,
+    updated_at
+) VALUES (
+    'Luxeny',
+    'luxeny',
+    'Todos los meses más de 10.000 mujeres confian en Luxeny para cuidar su cabello.',
+    'active',
+    NOW(),
+    NOW()
+);
